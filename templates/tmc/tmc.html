@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    {% for response in response.TMCs %}
+        <p>{{response.Titulo}}</p>
+    {% endfor %}
+    esto es un test 
+</div>
+{% endblock %}

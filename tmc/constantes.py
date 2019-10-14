@@ -1,0 +1,1 @@
+BASE_TMC_URL_API = 'https://api.sbif.cl/api-sbifv3/recursos_api/tmc/'
