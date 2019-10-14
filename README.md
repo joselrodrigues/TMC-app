@@ -2,7 +2,7 @@
 
 * [Acerca del proyecto](#acerca-del-proyecto)
     * [Para empezar](#para-empezar)
-        * [Prerequisitos](#prerequisitos)
+        * [Prerrequisitos](#prerrequisitos)
         * [Instalación](#instalación)
 * [Autor](#autor)
 * [Licencia](#licencia)
@@ -19,7 +19,7 @@ Es necesario bajarse el proyecto:
 git pull git@github.com:joselrodrigues/TMC-app.git
 ```
 
-### Prerequisitos
+### Prerrequisitos
 
 Tener python 3 instalado, en caso de no tenerlo se puede optener en: 
 
@@ -41,7 +41,8 @@ Para generar un entorno virtual para el proyecto ejecutar:
 virtualenv env
 source env/bin/activate
 ```
-Luego es necesario intalar las depenpendecias necesarias para la ejecucion:
+
+Luego instalar las dependencias necesarias para la ejecución:
 
 ```
 pip install requirements.txt
