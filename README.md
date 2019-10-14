@@ -1,4 +1,4 @@
-## Table of Contents
+## Tabla de contenido
 
 * [Acerca del proyecto](#acerca-del-proyecto)
     * [Para empezar](#para-empezar)
