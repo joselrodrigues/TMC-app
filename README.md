@@ -54,5 +54,5 @@ pip install requirements.txt
 
 ## Licencia
 
-Este proyecto esta bajo MIT License - para ver mas detalles puedes consultar [LICENSE.md](LICENSE.md) 
+Este proyecto esta bajo MIT License - para ver mas detalles puedes consultar [LICENSE](LICENSE) 
 
