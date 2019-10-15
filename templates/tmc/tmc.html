@@ -1,9 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-    {% for response in response.TMCs %}
-        <p>{{response.Titulo}}</p>
-    {% endfor %}
-    esto es un test 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center mt-5 d-flex justify-content-center">
+            <div class="col-md-4">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form | linebreaks }}
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </form>
+            </div>
+            
+            <div>
+                {% if response %}
+                    <h4>La TMC que corresponde es: </h4>
+                    <p>{{response.Valor}}</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>    
 </div>
 {% endblock %}

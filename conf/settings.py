@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-TMC_API_KEY = ''
+TMC_API_KEY = '9c84db4d447c80c74961a72245371245cb7ac15f'
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tmc',
     'rest_framework'
 ]
 
