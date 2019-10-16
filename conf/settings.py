@@ -25,7 +25,7 @@ SECRET_KEY = '70zs7c5so+%hwvmjpaj#wrd0fob-ce^)xt322d%w=jx&bq$!s@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 TMC_API_KEY = '9c84db4d447c80c74961a72245371245cb7ac15f'
 
