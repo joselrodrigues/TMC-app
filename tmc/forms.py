@@ -7,7 +7,7 @@ class TmcForm(forms.ModelForm):
 
     class Meta:
         model = Tmc
-        fields = ('plazo', 'monto',)
+        fields = ('plazo', 'monto', 'fecha_tmc')
 
     def __init__(self, *args, **kwargs):
         super(TmcForm, self).__init__(*args, **kwargs)

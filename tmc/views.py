@@ -13,9 +13,13 @@ def tmc(request):
         form = TmcForm(request.POST)
         if form.is_valid():
             try:
-                url = '{}{}/{}?apikey={}&formato=json'.format(BASE_TMC_URL_API,'2018','09',TMC_API_KEY)
+                fecha_tmc = str(form.cleaned_data['fecha_tmc'])
+                tmc_año = fecha_tmc.split('-')[0]
+                tmc_mes = fecha_tmc.split('-')[1]
+                url = '{}{}/{}?apikey={}&formato=json'.format(BASE_TMC_URL_API,tmc_año,tmc_mes,TMC_API_KEY)
                 get_response = requests.get(url)
                 response_json = get_response.json()
+                
                 data = {
                     'plazo': form.cleaned_data['plazo'],
                     'monto': form.cleaned_data['monto']
