@@ -4,6 +4,11 @@ from tmc.models import Tmc
 
 
 class TmcForm(forms.ModelForm):
+    """Formulario para la TMC
+    
+    Arguments:
+        forms {Object}
+    """
 
     class Meta:
         model = Tmc

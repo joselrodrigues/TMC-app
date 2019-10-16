@@ -8,7 +8,16 @@ from tmc.utils import get_tmc
 
 
 def tmc(request):
+    """Funcion que retorna el view de la TMC
+    
+    Arguments:
+        request {Object}
+    
+    Returns:
+        [Object] -- retorna el render con los parametros
+    """
     response = ''
+    error = ''
     if request.method == 'POST':
         form = TmcForm(request.POST)
         if form.is_valid():
@@ -18,16 +27,17 @@ def tmc(request):
                 tmc_mes = fecha_tmc.split('-')[1]
                 url = '{}{}/{}?apikey={}&formato=json'.format(BASE_TMC_URL_API,tmc_año,tmc_mes,TMC_API_KEY)
                 get_response = requests.get(url)
-                response_json = get_response.json()
-                
+                response_json = get_response.json()            
                 data = {
                     'plazo': form.cleaned_data['plazo'],
                     'monto': form.cleaned_data['monto']
                 }
                 response = get_tmc(response_json['TMCs'], **data)  
-            except Exception as error:
-                raise Exception(error) 
+            except requests.exceptions.RequestException as error:
+                error = error 
+            except requests.exceptions.Timeout:
+                error = error
     else:
         form = TmcForm()
     
-    return render(request,'tmc/tmc.html',{ 'response': response, 'form': form })
+    return render(request,'tmc/tmc.html',{ 'response': response, 'form': form, 'error': error })
