@@ -27,16 +27,21 @@ def tmc(request):
                 tmc_mes = fecha_tmc.split('-')[1]
                 url = '{}{}/{}?apikey={}&formato=json'.format(BASE_TMC_URL_API,tmc_año,tmc_mes,TMC_API_KEY)
                 get_response = requests.get(url)
-                response_json = get_response.json()            
-                data = {
-                    'plazo': form.cleaned_data['plazo'],
-                    'monto': form.cleaned_data['monto']
-                }
-                response = get_tmc(response_json['TMCs'], **data)  
-            except requests.exceptions.RequestException as error:
-                error = error 
-            except requests.exceptions.Timeout:
-                error = error
+                response_json = get_response.json()
+                if not response_json.get('CodigoHTTP'):      
+                    data = {
+                        'plazo': form.cleaned_data['plazo'],
+                        'monto': form.cleaned_data['monto']
+                    }
+                    response = get_tmc(response_json['TMCs'], **data)
+                else:
+                    error =  response_json['Mensaje']   
+            except requests.exceptions.RequestException as e:
+                error = e 
+            except requests.exceptions.Timeout as e:
+                error = e
+            except Exception as e:
+                error = e
     else:
         form = TmcForm()
     
